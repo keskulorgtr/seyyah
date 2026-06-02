@@ -29,12 +29,12 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="hero-nav__logo" aria-label="Seyyah Home">
           <Image
-            src="/images/seyyah-logo.svg"
+            src="/images/seyyah-logo-new.png"
             alt="Seyyah Travel"
-            width={160}
-            height={56}
+            width={180}
+            height={65}
             priority
-            className="hero-nav__logo-img"
+            className="hero-nav__logo-img object-contain"
           />
         </Link>
 
