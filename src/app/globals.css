@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@import "./hero.css";
+
+@theme {
+  --color-brand-anthracite: #18181b;
+  --color-brand-turquoise: #0C7B8A;
+  --color-brand-primary: #0C7B8A;
+  --color-brand-gold: #C9A84C;
+  --color-brand-petrol: #1B6E7A;
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-cormorant);
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.7s ease-out forwards;
+  --animate-slide-in-left: slide-in-left 0.6s ease-out forwards;
+  
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-in-left {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+}
+
+:root {
+  --brand-anthracite: #18181b;
+  --brand-turquoise: #0C7B8A;
+  --brand-gold: #C9A84C;
+  --brand-petrol: #1B6E7A;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1a2d3d;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Utility: scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Story progress animation */
+@keyframes progress-grow {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.animate-progress-grow {
+  animation-name: progress-grow;
+}
