@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Request {
+  id              Int      @id @default(autoincrement())
+  fullName        String
+  email           String?
+  phone           String?
+  reservationDate String
+  destination     String
+  pax             Int
+  status          String   @default("Yeni")
+  createdAt       DateTime @default(now())
+
+  @@map("requests")
+}
+
+model ArCountry {
+  id        Int          @id @default(autoincrement())
+  name      String
+  nameEn    String?
+  emoji     String?
+  sortOrder Int          @default(0)
+  createdAt DateTime     @default(now())
+  landmarks ArLandmark[]
+
+  @@map("ar_countries")
+}
+
+model ArLandmark {
+  id           Int       @id @default(autoincrement())
+  countryId    Int
+  name         String
+  nameEn       String?
+  description  String?
+  thumbnailUrl String?
+  modelUrl     String
+  sortOrder    Int       @default(0)
+  createdAt    DateTime  @default(now())
+  country      ArCountry @relation(fields: [countryId], references: [id], onDelete: Cascade)
+
+  @@map("ar_landmarks")
+}
